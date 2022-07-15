@@ -9,9 +9,9 @@ export type MapProps = {
   ipData: {
     lat: number;
     lng: number;
-    city: string;
-    region: string;
-    country: string;
+    city?: string;
+    region?: string;
+    country?: string;
   };
 };
 
