@@ -22,7 +22,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://fm-ip-tracker.vercel.app/)
+- Live Site URL: [https://fm-ip-tracker.vercel.app/](https://fm-ip-tracker.vercel.app/)
 
 ### Built with
 
