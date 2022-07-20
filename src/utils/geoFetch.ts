@@ -1,7 +1,21 @@
-export const geoFetch = async (ipAddress: string) => {
-  const response = await fetch(
-    `https://geo.ipify.org/api/v2/country,city?apiKey=at_ofwzoTGMpUp22yFAeCeZw4umw0ejc&ipAddress=${ipAddress}`
-  )
+// import { isIPAddress } from 'ip-address-validator';
+import { isIP } from 'is-ip';
+
+const getGeoUrl = (value: string) => {
+  const geoipifyUrl =
+    'https://geo.ipify.org/api/v2/country,city?apiKey=at_ofwzoTGMpUp22yFAeCeZw4umw0ejc';
+
+  if (isIP(value)) {
+    return `${geoipifyUrl}&ipAddress=${value}`;
+  } else {
+    return `${geoipifyUrl}&domain=${value}`;
+  }
+};
+
+export const geoFetch = async (inputValue: string) => {
+  const geoUrl = getGeoUrl(inputValue);
+
+  const response = await fetch(geoUrl)
     .then((response) => response.json())
     .then((data) => {
       if (data.code) {
